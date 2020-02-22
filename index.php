@@ -82,7 +82,7 @@
 					<div class="logo"></div>
 					<form action="confirmalogin.php" method='POST'>
 						<div class="form-group">
-							<input name="Email" type="Email" class="form-control input-lg" id="exampleInputEmail1" placeholder="Email">
+							<input name="Email" type="Email" class="form-control input-lg" id="exampleInputEmail1" placeholder="Email- testando kkkkkkk">
 						</div>
 						<div class="form-group">
 
