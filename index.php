@@ -43,7 +43,7 @@
 			background-color: #566573;
 			border-radius: 10px;
 			position: relative;
-			height: 400px;
+			height: 400%;
 			top: 60px;
 		}
 
@@ -82,7 +82,7 @@
 					<div class="logo"></div>
 					<form action="confirmalogin.php" method='POST'>
 						<div class="form-group">
-							<input name="Email" type="Email" class="form-control input-lg" id="exampleInputEmail1" placeholder="Email- testando kkkkkkk">
+							<input name="Email" type="Email" class="form-control input-lg" id="exampleInputEmail1" placeholder="Email">
 						</div>
 						<div class="form-group">
 
@@ -98,8 +98,6 @@
 			<div class="col-xs-6 col-sm-4"></div>
 		</div>
 	</div>
-
-	<h1>Teste de modificação </h1>
 </body>
 
 </html>
