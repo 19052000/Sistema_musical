@@ -81,7 +81,6 @@
 				<article>
 					<div class="logo"></div>
 					<form action="confirmalogin.php" method='POST'>
-						<h2 align="center">Login</h2>
 						<div class="form-group">
 							<input name="Email" type="Email" class="form-control input-lg" id="exampleInputEmail1" placeholder="Email">
 						</div>
@@ -92,12 +91,8 @@
 						<div class="form-group">
 
 							<button id="" type="submit" class="btn btn-primary" width="100px" left="40px">Logar-se </button>
-							
 						</div>
-					
-					
 					</form>
-					
 				</article>
 			</div>
 			<div class="col-xs-6 col-sm-4"></div>
