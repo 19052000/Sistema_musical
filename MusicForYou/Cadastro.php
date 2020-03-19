@@ -21,6 +21,7 @@
             $_SESSION['idade']  = $Idade;
             $_SESSION['sexo']  = $_Sexo;
             $_SESSION['senha']  = $senha1;
+            $_SESSION['tipo']  = 5;
             header('Location:questionario.php');
 		}
 		else{

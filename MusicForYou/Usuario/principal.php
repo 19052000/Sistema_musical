@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <?php
+        session_start();
+        $nome = $_SESSION['nome'];
+		$perfil =$_SESSION['perfil'];
+
                 $url1 = "https://www.youtube.com/results?search_query=melhores+musicas+de+todos+os+tempos";
 				$todo_site = file_get_contents($url1);
                 $val1 = explode('"commandMetadata":{"webCommandMetadata":{"url":"/watch?',$todo_site);
@@ -29,7 +33,7 @@
         </nav>
         <main class="principal">
                 <div class="conteudo">
-                <h4>Recomendados para você</h4>
+                <h4>Recomendados para <?= $nome?></h4>
                     <nav class="modulos">
                         <div class="modulo">
                             <ul>

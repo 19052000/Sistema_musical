@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25/02/2020 às 22:37
--- Versão do servidor: 10.4.6-MariaDB
--- Versão do PHP: 7.3.9
+-- Tempo de geração: 18/03/2020 às 20:24
+-- Versão do servidor: 10.4.11-MariaDB
+-- Versão do PHP: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,10 +19,30 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `bd-musica`
+-- Banco de dados: `bd_musica`
 --
-CREATE DATABASE IF NOT EXISTS `bd-musica` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `bd-musica`;
+CREATE DATABASE IF NOT EXISTS `bd_musica` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `bd_musica`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tb_perfil`
+--
+
+DROP TABLE IF EXISTS `tb_perfil`;
+CREATE TABLE `tb_perfil` (
+  `id_perfil` int(3) NOT NULL,
+  `perfil` int(3) DEFAULT NULL,
+  `qntde` int(3) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Despejando dados para a tabela `tb_perfil`
+--
+
+INSERT INTO `tb_perfil` (`id_perfil`, `perfil`, `qntde`) VALUES
+(1, 121, 1);
 
 -- --------------------------------------------------------
 
@@ -67,11 +87,20 @@ CREATE TABLE `tb_user` (
 
 INSERT INTO `tb_user` (`id`, `Nome`, `Idade`, `Email`, `Sexo`, `Senha`, `Perfil`) VALUES
 (1, 'Henrique do Amaral Ferreira', 19, 'hamaral158@gmail.com', 1, '123456', 3),
-(3, 'Maria', 16, 'mariaenegrelli@gmail.com', 2, '10238', 3);
+(3, 'Maria', 16, 'mariaenegrelli@gmail.com', 2, '10238', 3),
+(9, 'Maria Negrelli', 16, 'mariaenegrelli@gmail.com', 2, '92f20dafc5e5ac1c66820903c492cc04', 232),
+(10, 'João Pedro', 14, 'joao@gmail.com', 1, '41221ef32bed6a7c9cb6a5c9cbdd3f49', 111),
+(12, 'Jessica', 14, 'mariaenegrelli@gmail.com', 2, 'e42b04fc18562d16b7abbac187e99694', 121);
 
 --
 -- Índices de tabelas apagadas
 --
+
+--
+-- Índices de tabela `tb_perfil`
+--
+ALTER TABLE `tb_perfil`
+  ADD PRIMARY KEY (`id_perfil`);
 
 --
 -- Índices de tabela `tb_sexo`
@@ -91,6 +120,12 @@ ALTER TABLE `tb_user`
 --
 
 --
+-- AUTO_INCREMENT de tabela `tb_perfil`
+--
+ALTER TABLE `tb_perfil`
+  MODIFY `id_perfil` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de tabela `tb_sexo`
 --
 ALTER TABLE `tb_sexo`
@@ -100,7 +135,7 @@ ALTER TABLE `tb_sexo`
 -- AUTO_INCREMENT de tabela `tb_user`
 --
 ALTER TABLE `tb_user`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restrições para dumps de tabelas
