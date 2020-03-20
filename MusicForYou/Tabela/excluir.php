@@ -2,7 +2,7 @@
 
 <?php
 $id   = $_GET["id"];
-$sql = "SELECT * FROM tb_user WHERE id='$id'";
+$sql = "SELECT * FROM tb_user WHERE id_user='$id'";
 include "../conexao.php";
 $clientes = $conex->prepare($sql);
 $clientes->execute();
@@ -12,7 +12,7 @@ foreach ($clientes as $dados) {
 $conex = NULL;
 
 if (isset($_POST['excluir'])) {
-	$sql = "DELETE FROM tb_user WHERE id='$id'";
+	$sql = "DELETE FROM tb_user WHERE id_user='$id'";
 	include "../conexao.php";
 	$clientes = $conex->prepare($sql);
 	$clientes->execute();

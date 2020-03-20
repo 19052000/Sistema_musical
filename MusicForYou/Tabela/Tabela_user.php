@@ -43,18 +43,18 @@
                                             //var_dump($clientes);
 
                                             foreach ($tb_user as $bolacha) {
-                                                $id          = $bolacha['id'];
+                                                $id          = $bolacha['id_user'];
                                                 $Nome        = $bolacha['Nome'];
                                                 $Idade       = $bolacha['Idade'];
                                                 $Email       = $bolacha['Email'];
                                                 $Sexo        = $bolacha['Sexo'];
                                                
 
-                                                $editar = "<a href='editar.php?id=$id'>
+                                                $editar = "<a href='editar.php?id=$id'title='Editar $Nome?'>
                                                 <i class='fa fa-edit' aria-hidden='true'></i> 
                                             </a>";
 
-                                                $excluir = "<a href='excluir.php?id=$id'>
+                                                $excluir = "<a href='excluir.php?id=$id'title='Excluir $Nome?'>
                                                 <i class='fa fa-trash' aria-hidden='true'></i>
                                             </a>";
 

@@ -12,7 +12,7 @@
 			foreach($usuario as $user){
 				$_SESSION['nome']    = $user['Nome'];
 				$_SESSION['perfil']  = $user['Perfil'];
-				$tipo   = $user['Tipo_user'];
+				$tipo   = $user['tipo'];
 			}
 			if($tipo == 5)
 				header("Location:Usuario/principal.php");

@@ -2,11 +2,11 @@
 <?php
 $id = $_GET['id'];
 include "../conexao.php";
-$sql      = "SELECT * FROM tb_user WHERE id = '$id'";
+$sql      = "SELECT * FROM tb_user WHERE id_user = '$id'";
 $clientes = $conex->prepare($sql);
 $clientes->execute();
 foreach ($clientes as $bolacha) {
-	$id            = $bolacha['id'];
+	$id            = $bolacha['id_user'];
 	$Nome          = $bolacha['Nome'];
     $Idade         = $bolacha['Idade'];
     $Email         = $bolacha['Email'];
