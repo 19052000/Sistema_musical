@@ -9,15 +9,45 @@
 	$Idade  = $_SESSION['idade'];
 	$_Sexo   = $_SESSION['sexo'];
 	$senha1  = $_SESSION['senha'];
+	$tipo   = $_SESSION['tipo'];
 	if(isset($_POST['enviar'])){
 		if(isset($_POST['pri']) AND isset($_POST['sec']) AND isset($_POST['ter'])){
-			$perfil = $_POST['pri'].$_POST['sec'].$_POST['ter'];
 			include "conexao.php";
-			$sql      = 'INSERT INTO tb_user(id, Nome, Idade, Email, Sexo, Senha,Perfil) VALUES(?,?,?,?,?,?,?)';
-			$clientes = $conex->prepare($sql);
-			$clientes->execute(array($id, $Nome, $Idade,  $Email, $_Sexo, $senha1,$perfil));
-			$conex = NULL; //encerra conexao com o banco
-			header('location:index.php');
+			$perfil = $_POST['pri'].$_POST['sec'].$_POST['ter'];
+			$sql2 ="SELECT * FROM tb_perfil WHERE perfil = '$perfil'";
+			$perf = $conex->prepare($sql2);
+			$perf->execute();
+			$ter_perfil = $perf->rowCount();
+			echo $ter_perfil;
+			if($ter_perfil == 1){
+				echo "tudo bom?";
+				foreach($perf as $p){
+					$qntde     = $p['qntde'];
+					$id_perfil = $p['id_perfil'];
+				}
+				$qntde = $qntde+1;
+				$sql4 = "UPDATE tb_perfil SET
+				qntde  = ?
+				WHERE
+				id_perfil = ?
+				";
+				$mais_perf = $conex->prepare($sql4);
+				$mais_perf->execute(array($qntde,$id_perfil));
+
+			}
+			else{
+				$sql3 = "INSERT INTO tb_perfil VALUES(?,?,?)";
+				$ins_per = $conex->prepare($sql3);
+				$ins_per->execute(array("",$perfil,1));
+				//$sql5 = "INSERT INTO tb_perf_genero";
+			}
+			
+				$sql      = 'INSERT INTO tb_user(id_user, Nome, Idade, Email, Sexo, Senha,Perfil,tipo) VALUES(?,?,?,?,?,?,?,?)';
+				$clientes = $conex->prepare($sql);
+				$clientes->execute(array($id, $Nome, $Idade,  $Email, $_Sexo, $senha1,$perfil,$tipo));
+				$conex = NULL; 
+				header('location:index.php');
+				
 		}
 		else{
 			echo "<script>alert('Um campo não preenchido.');</script>";

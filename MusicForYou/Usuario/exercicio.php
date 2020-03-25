@@ -8,18 +8,11 @@
         <link rel="stylesheet" href="recursos/css/exercicio.css">
     </head>
     <body class="exercicio">
-        <header class="cabecalho">
-            <h1>Curso de PHP</h1>
-            <h2>Visualização de Exercício</h2>
-        </header>
-        <nav class="navegacao">
-            <a href=<?= "/{$_GET['dir']}/{$_GET['file']}.php" ?> class="verde">Sem formatação</a>
-            <a href="index.php" class="vermelho">Voltar</a>
-        </nav>
+       <?php include('include.php');?>
         <main class="principal">
             <div class="conteudo">
                 <?php
-                    include (__DIR__ . "/{$_GET['dir']}/{$_GET['file']}.php");
+                  //  include (__DIR__ . "/{$_GET['dir']}/{$_GET['file']}.php");
                 ?>
             </div>
         </main>

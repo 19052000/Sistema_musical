@@ -2,7 +2,7 @@
 		$senha   = md5($_POST['senha1']);
 		$email   = $_POST['email'];
 		include ("conexao.php");
-		$sql     =  "SELECT Nome,Senha,Email,Perfil FROM tb_user WHERE Senha = '$senha' AND Email = '$email'";
+		$sql     =  "SELECT * FROM tb_user WHERE Senha = '$senha' AND Email = '$email'";
 		$usuario = $conex->prepare($sql);
 		$usuario -> execute();	
 		$exist = $usuario->rowCount();
@@ -12,8 +12,12 @@
 			foreach($usuario as $user){
 				$_SESSION['nome']    = $user['Nome'];
 				$_SESSION['perfil']  = $user['Perfil'];
+				$tipo   = $user['tipo'];
 			}
-			header("Location:Usuario/principal.php");
+			if($tipo == 5)
+				header("Location:Usuario/principal.php");
+			else
+				header("Location:Tabela/Tabela_user.php");
 		}	
 		else{
 			echo "Sai piá pançudo";

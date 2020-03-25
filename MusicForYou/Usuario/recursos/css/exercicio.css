@@ -26,9 +26,9 @@ body.exercicio{
     padding: 5px 10px;
     margin-right: 10px;
 }
-/*
-.navegacao > a.verde{ background-color:#4CAF50;}
 
+.navegacao > a.verde{ background-color:#4CAF50; color:#fff;}
+/*
 .navegacao > a.vermelho{  background-color:#F44336;}
 */
 .conteudo{
