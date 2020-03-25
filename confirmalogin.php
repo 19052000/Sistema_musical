@@ -16,7 +16,7 @@ foreach($user as $dados){
 if($exist == 1){
 	if($perfil == 3){
 	$_SESSION['Email'] = $usuario_digitado;
-	$script = "<script>alert('Bem vindo Usuario');window.location.href='https://www.youtube.com/'</script>";
+	$script = "<script>alert('Bem vindo Usuario');window.location.href='Usuario/P'</script>";
 	echo $script;
 	$conex = NULL;
 	die();
