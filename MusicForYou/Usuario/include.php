@@ -17,5 +17,5 @@
             <a href="disco.php" class="vermelho">Disco</a>
             <a href="classica.php" class="vermelho">Clássica</a>
             <a href="pop.php" class="vermelho">POP</a>
-            <a href="#" class="vermelho">RAP</a>
+            <a href="rap.php" class="vermelho">RAP</a>
         </nav>

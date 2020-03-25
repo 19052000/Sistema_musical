@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-     $url1 = "https://www.youtube.com/results?search_query=pop";
+     $url1 = "https://www.youtube.com/results?search_query=rap";
      $todo_site = file_get_contents($url1);
      $val1 = explode('"commandMetadata":{"webCommandMetadata":{"url":"/watch?',$todo_site);
      $val2 = explode('aria-hidden="true"><a href="/watch?v=',$val1[0]);
@@ -47,13 +47,13 @@
         <?php include('include.php');?>
         <main class="principal">
                 <div class="conteudo">
-                <h4>POP</h4>
+                <h4>RAP</h4>
                 <nav class="modulos">
                         <div class="modulo">
                             <ul>
                                 <li><?=  $aleatorio;?></li>
                                 <li>
-                                    <form action="Dados_perfil.php?genero=4&volta=pop" method="POST">
+                                    <form action="Dados_perfil.php?genero=5&volta=rap" method="POST">
                                         Como você classificaria está música?
                                         <input type="radio" id="adorei" name="pri" value="1">
                                         <label for="adorei">Adorei</label>
@@ -71,7 +71,7 @@
                             <ul>
                                 <li><?= $aleatorio2;?></li>
                                 <li>
-                                    <form action="Dados_perfil.php?genero=4&volta=pop" method="POST">
+                                    <form action="Dados_perfil.php?genero=5&volta=rap" method="POST">
                                         Como você classificaria está música?
                                         <input type="radio" id="adorei" name="pri" value="1">
                                         <label for="adorei">Adorei</label>

@@ -7,7 +7,7 @@
     $novo     = $conex->prepare($n_perfil);
     $novo->execute();
     foreach($novo as $bolo){
-    $id_perfil = $bolo['id_perfil'];
+        $id_perfil = $bolo['id_perfil'];
     }
         if($_POST['pri'] == 1){
             $avaliacao = 2;
@@ -44,7 +44,7 @@
       else{
        $inser = "INSERT INTO tb_perf_genero VALUES(?,?,?,?,?)";
        $exe   = $conex->prepare($inser);
-       $exe->execute(array($id,$id_perfil,genero,$avaliacao,$desaprovacao));
+       $exe->execute(array("",$id_perfil,$genero,$avaliacao,$desaprovacao));
        $conex = NULL;
        header("Location:$volta.php");
       }

@@ -27,7 +27,7 @@
         <?php include('include.php');?>
         <main class="principal">
                 <div class="conteudo">
-                <h4>Disco</h4>
+                <h4>Classica</h4>
                     <nav class="modulos">
                         <div class="modulo">
                             <ul>
@@ -50,6 +50,19 @@
                        <div class="modulo">
                             <ul>
                                 <li><?=  $aleatorio2;?></li>
+                                <li>
+                                    <form action="Dados_perfil.php?genero=3&volta=classica" method="POST">
+                                        Como você classificaria está música?
+                                        <input type="radio" id="adorei" name="pri" value="1">
+                                        <label for="adorei">Adorei</label>
+                                        <input type="radio" id="gostei" name="pri" value="2">
+                                        <label for="gostei">Gostei</label><br>
+                                        <input type="radio" id="n_gostei" name="pri" value="3">
+                                        <label for="n_gostei">Não gostei</label><br>
+                                        <input type="submit" name="salv1" value="Salvar">
+                                        
+                                    </form>
+                                </li>
                             </ul>
                         </div>
                     </nav>
