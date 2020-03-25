@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <?php
-        session_start();
-        $nome = $_SESSION['nome'];
-		$perfil =$_SESSION['perfil'];
+        
 
                 $url1 = "https://www.youtube.com/results?search_query=melhores+musicas+de+todos+os+tempos";
 				$todo_site = file_get_contents($url1);
@@ -19,18 +17,9 @@
     <head>
         <title>Exercício</title>
         <meta charset="UTF-8">
-        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="recursos/css/estilos.css">
-        <link rel="stylesheet" href="recursos/css/exercicio.css">
     </head>
     <body class="exercicio">
-        <header class="cabecalho">
-            <img src="../img/LogoMusic.PNG">
-        </header>
-        <nav class="navegacao">
-            <a href="principal.php" class="verde">Home</a>
-            <a href="#" class="vermelho">Rock</a>
-        </nav>
+        <?php include('include.php');?>
         <main class="principal">
                 <div class="conteudo">
                 <h4>Recomendados para <?= $nome?></h4>

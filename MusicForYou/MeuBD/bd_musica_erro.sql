@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20/03/2020 às 18:51
+-- Tempo de geração: 22/03/2020 às 01:14
 -- Versão do servidor: 10.4.11-MariaDB
 -- Versão do PHP: 7.4.3
 
@@ -27,6 +27,18 @@ USE `bd_musica`;
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `tb_genero`
+--
+
+DROP TABLE IF EXISTS `tb_genero`;
+CREATE TABLE `tb_genero` (
+  `id_genero` int(3) NOT NULL,
+  `descricao` varchar(60) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `tb_perfil`
 --
 
@@ -37,12 +49,19 @@ CREATE TABLE `tb_perfil` (
   `qntde` int(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Despejando dados para a tabela `tb_perfil`
+-- Estrutura para tabela `tb_perf_genero`
 --
 
-INSERT INTO `tb_perfil` (`id_perfil`, `perfil`, `qntde`) VALUES
-(5, 231, 1);
+DROP TABLE IF EXISTS `tb_perf_genero`;
+CREATE TABLE `tb_perf_genero` (
+  `perfil` int(3) NOT NULL,
+  `genero` int(3) NOT NULL,
+  `gostei` int(3) DEFAULT NULL,
+  `odiei` varchar(60) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -107,20 +126,30 @@ CREATE TABLE `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id_user`, `Nome`, `Idade`, `Email`, `Sexo`, `Senha`, `Perfil`, `tipo`) VALUES
-(10, 'João Pedro', 14, 'joao@gmail.com', 1, '41221ef32bed6a7c9cb6a5c9cbdd3f49', 111, 5),
-(13, 'Maria Eduarda Negrelli', 16, 'mariaenegrelli@gmail.com', 2, 'db261d4f615f0e982983be499e57ccda', 231, 5),
-(14, 'Maria Negrelli', 16, 'mariaenegrelli@gmail.com', 2, '92f20dafc5e5ac1c66820903c492cc04', 232, 3),
-(15, 'João', 22, 'joão@gmail.com', 1, '4287816f7bc22c82a83f70ad492266db', 113, 5);
+(14, 'Maria Negrelli', 16, 'mariaenegrelli@gmail.com', 2, '92f20dafc5e5ac1c66820903c492cc04', 232, 3);
 
 --
 -- Índices de tabelas apagadas
 --
 
 --
+-- Índices de tabela `tb_genero`
+--
+ALTER TABLE `tb_genero`
+  ADD PRIMARY KEY (`id_genero`);
+
+--
 -- Índices de tabela `tb_perfil`
 --
 ALTER TABLE `tb_perfil`
   ADD PRIMARY KEY (`id_perfil`);
+
+--
+-- Índices de tabela `tb_perf_genero`
+--
+ALTER TABLE `tb_perf_genero`
+  ADD KEY `genero` (`genero`),
+  ADD KEY `fk_perf` (`perfil`);
 
 --
 -- Índices de tabela `tb_sexo`
@@ -150,7 +179,7 @@ ALTER TABLE `tb_user`
 -- AUTO_INCREMENT de tabela `tb_perfil`
 --
 ALTER TABLE `tb_perfil`
-  MODIFY `id_perfil` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_perfil` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `tb_sexo`
@@ -159,8 +188,21 @@ ALTER TABLE `tb_sexo`
   MODIFY `id_sexo` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT de tabela `tb_user`
+--
+ALTER TABLE `tb_user`
+  MODIFY `id_user` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- Restrições para dumps de tabelas
 --
+
+--
+-- Restrições para tabelas `tb_perf_genero`
+--
+ALTER TABLE `tb_perf_genero`
+  ADD CONSTRAINT `fk_perf` FOREIGN KEY (`perfil`) REFERENCES `tb_perfil` (`id_perfil`),
+  ADD CONSTRAINT `tb_perf_genero_ibfk_1` FOREIGN KEY (`genero`) REFERENCES `tb_genero` (`id_genero`);
 
 --
 -- Restrições para tabelas `tb_user`

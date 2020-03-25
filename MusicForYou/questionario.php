@@ -18,8 +18,9 @@
 			$perf = $conex->prepare($sql2);
 			$perf->execute();
 			$ter_perfil = $perf->rowCount();
-			
+			echo $ter_perfil;
 			if($ter_perfil == 1){
+				echo "tudo bom?";
 				foreach($perf as $p){
 					$qntde     = $p['qntde'];
 					$id_perfil = $p['id_perfil'];
@@ -38,13 +39,15 @@
 				$sql3 = "INSERT INTO tb_perfil VALUES(?,?,?)";
 				$ins_per = $conex->prepare($sql3);
 				$ins_per->execute(array("",$perfil,1));
+				//$sql5 = "INSERT INTO tb_perf_genero";
 			}
-				$sql      = 'INSERT INTO tb_user(id, Nome, Idade, Email, Sexo, Senha,Perfil,Tipo_user) VALUES(?,?,?,?,?,?,?,?)';
+			
+				$sql      = 'INSERT INTO tb_user(id_user, Nome, Idade, Email, Sexo, Senha,Perfil,tipo) VALUES(?,?,?,?,?,?,?,?)';
 				$clientes = $conex->prepare($sql);
 				$clientes->execute(array($id, $Nome, $Idade,  $Email, $_Sexo, $senha1,$perfil,$tipo));
 				$conex = NULL; 
 				header('location:index.php');
-			
+				
 		}
 		else{
 			echo "<script>alert('Um campo não preenchido.');</script>";
